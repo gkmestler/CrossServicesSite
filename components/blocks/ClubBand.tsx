@@ -19,7 +19,7 @@ export function ClubBand() {
             </h2>
             <p className="mt-3 text-[16px] text-muted">
               Four international squash courts, a junior academy, adult leagues, a fitness
-              center and the Garage Gym — all at 19 Tech Cir #1023.
+              center and the Garage Gym — all at 19 Tech Cir.
             </p>
           </div>
           <div className="flex shrink-0 flex-col gap-3 sm:flex-row">

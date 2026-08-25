@@ -13,7 +13,7 @@ import { Reveal } from "@/components/ui/Reveal";
 export const metadata: Metadata = pageMetadata({
   title: "Cross Courts — squash and fitness in Natick",
   description:
-    "Four international squash courts, one of the largest junior academies in the country, adult leagues, a fitness center and the Garage Gym. At 19 Tech Cir #1023, Natick.",
+    "Four international squash courts, one of the largest junior academies in the country, adult leagues, a fitness center and the Garage Gym. At 19 Tech Cir, Natick.",
   path: "/club",
 });
 
@@ -230,13 +230,7 @@ export default function ClubPage() {
           </div>
 
           <div>
-            <MediaFrame
-              src="/images/club/crosscourts-3.jpg"
-              alt="Cross Courts in Natick"
-              ratio="3/2"
-              sizes="(min-width: 768px) 520px, 90vw"
-            />
-            <p className="mt-5 flex items-start gap-3 text-[17px]">
+            <p className="mb-5 flex items-start gap-3 text-[17px]">
               <MapPin aria-hidden="true" className="mt-1 size-5 shrink-0 text-cross-blue" />
               <a
                 href={site.address.mapsUrl}
@@ -248,15 +242,12 @@ export default function ClubPage() {
                 {site.address.zip}
               </a>
             </p>
-            <div className="mt-5 overflow-hidden rounded-[3px] border border-line">
-              <iframe
-                src={site.address.mapEmbedUrl}
-                title="Map showing Cross Courts at 19 Tech Cir, Natick"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                className="block h-[300px] w-full"
-              />
-            </div>
+            <MediaFrame
+              src="/images/club/crosscourts-3.jpg"
+              alt="Cross Courts in Natick"
+              ratio="3/2"
+              sizes="(min-width: 768px) 520px, 90vw"
+            />
           </div>
         </div>
       </Section>
