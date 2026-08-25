@@ -391,6 +391,8 @@ export const services: Service[] = [
       "Full painting services for residential or commercial projects",
       "Painting by the hour or by the project",
       "Handyman services — everything on the to-do list",
+      "Carpentry – Repairs, renovations, trim work, doors, framing, and general woodwork",
+      "Interior Construction – Drywall installation, ceiling work, flooring, wall modifications, room updates, and interior build-outs",
       "Christmas and holiday decorations",
     ],
     brandId: null,
