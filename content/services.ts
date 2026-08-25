@@ -41,8 +41,12 @@ export type Service = {
   audienceLabel?: string;
   /** Two or three sentences at the top of the detail page. */
   intro: string;
-  /** The "What's included" checklist. */
+  /** The "What's included" checklist. Also feeds the service schema's itemListElement. */
   includes: string[];
+  /** Optional label shown above the "What's included" checklist, e.g. "Maintenance Service:". */
+  includesHeading?: string;
+  /** Splits "What's included" into multiple labelled groups instead of one flat list, e.g. "Maintenance Service:" and "Snow Management:". When set, this drives the display and `includes` should list the same items flattened, for the service schema. */
+  includesGroups?: { heading: string; items: string[] }[];
   /** Which portfolio company does this work. `null` means Cross does it directly. */
   brandId: string | null;
   /** A second company, e.g. The Furies covering Cape Cod. */
@@ -79,11 +83,45 @@ export const services: Service[] = [
     intro:
       "The first thing anyone sees when they arrive at your home or your building is the grounds. Our landscape crews handle design, planting, weekly maintenance and seasonal clean-ups, whether it is a residential property or commercial sites.",
     includes: [
-      "Full landscape assessments",
-      "Plant recommendations and design",
-      "Existing lawn renovations or overseeding",
-      "Landscape lighting and design",
-      "Year-round maintenance plans: spring clean-ups, bark mulching, weekly lawn maintenance, shrub pruning, fertilization, fall clean-ups and leaf removal",
+      "Spring & Fall cleanups",
+      "Edging & mulching",
+      "Weeding",
+      "Weekly Mowing",
+      "Fertilizing",
+      "Lawn renovations",
+      "New lawn installations",
+      "Aeration, de-thatching, seeding",
+      "Trimming of trees and shrubs",
+      "Installation of trees, shrubs and perennials",
+      "Design services",
+      "Snowplowing",
+      "Shoveling",
+      "Melting and de-icing services",
+      "Snow removal",
+    ],
+    includesGroups: [
+      {
+        heading: "Maintenance Services:",
+        items: [
+          "Spring & Fall cleanups",
+          "Edging & mulching",
+          "Weeding",
+          "Weekly Mowing",
+          "Fertilizing",
+          "Lawn renovations",
+          "New lawn installations",
+          "Aeration, de-thatching, seeding",
+          "Trimming of trees and shrubs",
+        ],
+      },
+      {
+        heading: "Planting:",
+        items: ["Installation of trees, shrubs and perennials", "Design services"],
+      },
+      {
+        heading: "Snow Management",
+        items: ["Snowplowing", "Shoveling", "Melting and de-icing services", "Snow removal"],
+      },
     ],
     brandId: null,
     related: ["irrigation", "power-washing", "gutter-cleaning"],

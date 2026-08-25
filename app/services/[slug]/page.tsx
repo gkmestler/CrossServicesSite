@@ -149,8 +149,36 @@ export default async function ServiceDetailPage({
               <h2 className="text-[26px] leading-[1.15] md:text-[34px]">
                 What&apos;s included
               </h2>
-              <div className="mt-6 max-w-[68ch]">
-                <CheckList items={service.includes} />
+              <div className={service.includesGroups ? "mt-6" : "mt-6 max-w-[68ch]"}>
+                {service.includesGroups ? (
+                  <div className="grid gap-x-10 gap-y-8 sm:grid-cols-2">
+                    <div>
+                      <p className="font-display mb-3 text-[18px] font-semibold text-cross-navy">
+                        {service.includesGroups[0].heading}
+                      </p>
+                      <CheckList items={service.includesGroups[0].items} />
+                    </div>
+                    <div className="flex flex-col gap-8">
+                      {service.includesGroups.slice(1).map((group) => (
+                        <div key={group.heading}>
+                          <p className="font-display mb-3 text-[18px] font-semibold text-cross-navy">
+                            {group.heading}
+                          </p>
+                          <CheckList items={group.items} />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ) : (
+                  <>
+                    {service.includesHeading ? (
+                      <p className="font-display mb-3 text-[18px] font-semibold text-cross-navy">
+                        {service.includesHeading}
+                      </p>
+                    ) : null}
+                    <CheckList items={service.includes} />
+                  </>
+                )}
               </div>
             </div>
 
