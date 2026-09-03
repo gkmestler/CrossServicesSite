@@ -22,7 +22,7 @@ import { QuoteCta } from "@/components/blocks/QuoteCta";
 
 export function generateStaticParams() {
   return services
-    .filter((service) => !service.externalUrl)
+    .filter((service) => !service.externalUrl && !service.quoteOnly)
     .map((service) => ({ slug: service.slug }));
 }
 
@@ -52,7 +52,7 @@ export default async function ServiceDetailPage({
 }) {
   const { slug } = await params;
   const service = getService(slug);
-  if (!service) notFound();
+  if (!service || service.quoteOnly) notFound();
   if (service.externalUrl) redirect(service.externalUrl);
 
   /* The before/after slider only appears when both photos actually exist. */

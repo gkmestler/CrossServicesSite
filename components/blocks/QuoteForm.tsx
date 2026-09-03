@@ -5,7 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { ArrowLeft, Building2, Check, House, Phone } from "lucide-react";
 import { site } from "@/content/site";
-import { servicesByGroup, getService } from "@/content/services";
+import { quoteFormGroups, getService } from "@/content/services";
 import {
   HEARD_ABOUT_OPTIONS,
   fieldErrors,
@@ -69,7 +69,7 @@ export function QuoteForm() {
   const headingRef = useRef<HTMLHeadingElement>(null);
   const groups = useMemo(
     () =>
-      servicesByGroup().map((group) => ({
+      quoteFormGroups().map((group) => ({
         ...group,
         services: group.services.filter((s) => !s.externalUrl),
       })),

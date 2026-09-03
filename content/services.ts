@@ -62,6 +62,8 @@ export type Service = {
   faqs: { q: string; a: string }[];
   /** The old Squarespace address, if this service had one. Used to build the redirects in next.config.ts. */
   legacyPath?: string;
+  /** True for a checkbox that should appear on the quote form only — no detail page, no nav/footer/sitemap entry. */
+  quoteOnly?: boolean;
 };
 
 /** Display names and running order for the five groups. */
@@ -75,6 +77,20 @@ export const serviceGroups: { id: ServiceGroup; name: string }[] = [
 
 export const services: Service[] = [
   /* ---------------------------------------------------------------- GROUNDS */
+  {
+    slug: "holiday-lighting",
+    name: "Holiday Lighting",
+    group: "grounds",
+    quoteOnly: true,
+    tagline: "Holiday lights installed, maintained and taken down.",
+    intro: "",
+    includes: [],
+    brandId: null,
+    related: [],
+    heroImage: "/images/services/holiday-lighting-hero.jpg",
+    gallery: [],
+    faqs: [],
+  },
   {
     slug: "landscaping",
     name: "Landscaping",
@@ -589,16 +605,30 @@ export function getService(slug: string): Service | undefined {
 }
 
 export function getServicesInGroup(group: ServiceGroup): Service[] {
-  return services.filter((s) => s.group === group);
+  return services.filter((s) => s.group === group && !s.quoteOnly);
 }
 
-/** Services bucketed into the five groups, in the order set above. */
+/** Services bucketed into the five groups, in the order set above. Excludes
+    quote-only checkboxes — use `quoteFormGroups` for the quote form. */
 export function servicesByGroup(): {
   id: ServiceGroup;
   name: string;
   services: Service[];
 }[] {
   return serviceGroups.map((g) => ({ ...g, services: getServicesInGroup(g.id) }));
+}
+
+/** Same grouping as `servicesByGroup`, but includes quote-only checkboxes.
+    Used only by the quote form. */
+export function quoteFormGroups(): {
+  id: ServiceGroup;
+  name: string;
+  services: Service[];
+}[] {
+  return serviceGroups.map((g) => ({
+    ...g,
+    services: services.filter((s) => s.group === g.id),
+  }));
 }
 
 export function getRelatedServices(service: Service): Service[] {

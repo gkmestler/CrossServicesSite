@@ -27,7 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: page.priority,
     })),
     ...services
-      .filter((service) => !service.externalUrl)
+      .filter((service) => !service.externalUrl && !service.quoteOnly)
       .map((service) => ({
         url: new URL(`/services/${service.slug}`, SITE_URL).toString(),
         lastModified: now,
