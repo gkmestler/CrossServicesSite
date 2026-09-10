@@ -136,30 +136,23 @@ export const team: TeamMember[] = [
     bio: null, // [NEEDS INPUT] bio
   },
   {
-    id: "joe-slavik",
-    name: "Joe Slavik",
-    title: "Operations Analyst",
-    photo: null, // [NEEDS INPUT] headshot
-    bio: null, // [NEEDS INPUT] bio
-  },
-  {
-    id: "gavin-mestler",
-    name: "Gavin Mestler",
-    title: "Operations Intern",
-    photo: null, // [NEEDS INPUT] headshot
-    bio: null, // [NEEDS INPUT] bio
-  },
-  {
-    id: "joanna-tang",
-    name: "Joanna Tang",
-    title: "Operations Intern",
-    photo: null, // [NEEDS INPUT] headshot
-    bio: null, // [NEEDS INPUT] bio
-  },
-  {
     id: "michael-fair",
     name: "Michael Fair",
     title: "Business Development",
+    photo: null, // [NEEDS INPUT] headshot
+    bio: null, // [NEEDS INPUT] bio
+  },
+  {
+    id: "tina-boss",
+    name: "Tina Boss",
+    title: "Office Administrator",
+    photo: null, // [NEEDS INPUT] headshot
+    bio: null, // [NEEDS INPUT] bio
+  },
+  {
+    id: "office-administrator-2",
+    name: "", // [NEEDS INPUT] name
+    title: "Office Administrator",
     photo: null, // [NEEDS INPUT] headshot
     bio: null, // [NEEDS INPUT] bio
   },
